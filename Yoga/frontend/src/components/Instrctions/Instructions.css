@@ -1,0 +1,21 @@
+.instructions-list {
+    width: 40%;
+    border-radius: 8px;
+    border: 5px solid #fcfdf8;
+    padding: 10px;
+    margin-top: 50px;
+    z-index: 2;
+}
+.instruction {
+    margin: 10px;
+    letter-spacing: 0.5px;
+    color: #fcfdf8;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+.instructions-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+}

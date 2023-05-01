@@ -1,0 +1,126 @@
+.yoga-container-initial {
+    min-width: 100vb;
+    min-height: 100vh;
+}
+
+.background-img{
+    background: url(../../utils/images/front.jpg);
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    position: fixed;
+    background-repeat: no-repeat;
+    filter: blur(8px);
+}
+
+.yoga-container-final {
+    background: #fdfcf8;
+    min-width: 100vw;
+    min-height: 100vh;
+    background: #2b598f;
+}
+
+.secondary-btn {
+    position: relative;
+    left:44%;
+    margin-top: 10px;
+    padding: 10px 20px 10px 20px;
+    background-color: #2b598f;
+    border-width: 1px;
+    border-color: #2b598f;
+    color: #fdfcf8;
+    margin-bottom: 20px;
+}
+
+.secondary-btn:hover {
+    background-color: #fdfcf8;
+    color: #2b598f;
+}
+
+.secondary-btn-final {
+    position: relative;
+    left:80%;
+    margin-top: 10px;
+    padding: 10px 20px 10px 20px;
+    background-color: #2b598f;
+    border-width: 1px;
+    border-color: #fcfdf8;
+    color: #fdfcf8;
+    box-shadow: 0px;
+}
+
+.secondary-btn-final:hover {
+    background-color: #fdfcf8;
+    color: #2b598f;
+    border-color: #2b598f;
+}
+
+.starting-contdown {
+    margin: auto;
+    border: 10px solid rgba(125, 125, 125, 0.5);
+    width: max-content;
+    padding: 10px 30px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0);
+    position: relative;
+    top: 45%;
+}
+.starting-contdown h1 {
+    color: white;
+    border-color: white;
+    border-width: 1px;
+}
+.pose-img {
+    position: absolute;
+    right: 150px;
+    top: 200px;
+    width: 500px;
+    height: 480px;
+    aspect-ratio: 1;
+}
+
+.performance-container {
+    display: flex;
+    position: absolute;
+    left: 150px;
+    background: #2b598f;
+    border-radius: 1%;
+    z-index: 2;
+    margin: 0px;
+    margin-top: 0px;
+}
+
+
+.pose-performance {
+    margin: 10px 10px;
+    border-radius: 8px;
+    padding: 10px;
+    z-index: 2;
+}
+.pose-performance h4 {
+    color: #fcfdf8;
+}
+
+#webcam {
+    transform: rotateY(180deg);
+}
+
+#my-canvas {
+    transform: rotateY(180deg);
+}
+
+.instruct-text{
+    text-align: center;
+    color: #2b598f;
+    margin-top: 20px;
+    margin-bottom: -10px;
+    z-index: 1000;
+    position: relative;
+}
+
+.yoga-header{
+    position: relative;
+    padding-bottom: 20px;
+    z-index: 10000;
+    background: #2b598f;
+}

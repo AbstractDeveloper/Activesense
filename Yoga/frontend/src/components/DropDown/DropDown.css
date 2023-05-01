@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Staatliches&display=swap');
+
+#pose-dropdown-btn:hover {
+    background-color: #2b598f;
+    cursor: pointer;
+}
+
+#pose-dropdown-btn {
+    width: 400px;
+    height: 55px;
+    background-color: #465e71;
+}
+
+.dropdown-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: #2b598f;
+}
+
+.header-name{
+    font-family: 'Staatliches', cursive;
+    margin-left: 10px;
+    color: #fcfdf8;
+    user-select: none;
+}
+
+#pose-dropdown-btn:focus {
+    background-color: #2b598f;
+    color: black;
+    box-shadow: none;
+}
+#pose-dropdown-btn:focus-within {
+    border-color: #2b598f;
+}
+.dropdown-option {
+    opacity: 0.8;
+    background: url('../../utils/pose_images/chair.png');
+}
+
+.dropdown-custom-menu {
+    overflow: scroll;
+    height: 40vh;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    transition: 0.5s;
+}
+.dropdown-custom-menu::-webkit-scrollbar {
+    display: none;
+}
+
+.dropdown-item-container {
+    width: 400px;
+    display: flex;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+    opacity: 20;
+}
+
+.dropdown-item-container:hover{
+    background: #2b598f;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.dropdown-item-1 {
+    margin: 10px;
+    margin-bottom: 40px;
+}
+.dropdown-img {
+    width: 50px;
+    height: 50px;
+}
