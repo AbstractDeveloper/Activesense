@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Diet Recommendations</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #fafafa;
+
+        }
+
+        header {
+            background-color: #222;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .header a.active {
+            background-color: dodgerblue;
+            color: white;
+        }
+
+        .header-right {
+            float: right;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        nav li {
+            float: left;
+            margin-right: 20px;
+        }
+
+        nav li a {
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        nav li a:hover {
+            background-color: #555;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            background-color: rgb(195, 147, 240);
+            border-radius: 10px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            background-color: skyblue;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        p {
+            font-size: 20px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        span {
+            font-weight: bold;
+        }
+
+        #calories {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        #recommendation {
+            font-size: 28px;
+            font-weight: bold;
+            color: #009933;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200');
+
+        body {
+            background-image: url('https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg');
+            background-size: cover;
+            -webkit-animation: slidein 100s;
+            animation: slidein 100s;
+
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+
+            -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+
+            -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+        }
+
+        @-webkit-keyframes slidein {
+            from {
+                background-position: top;
+                background-size: 3000px;
+            }
+
+            to {
+                background-position: -100px 0px;
+                background-size: 2750px;
+            }
+        }
+
+        @keyframes slidein {
+            from {
+                background-position: top;
+                background-size: 3000px;
+            }
+
+            to {
+                background-position: -100px 0px;
+                background-size: 2750px;
+            }
+
+        }
+
+
+
+        .center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(75, 75, 250, 0.3);
+            border-radius: 3px;
+        }
+
+        .center h1 {
+            text-align: center;
+            color: white;
+            font-family: 'Source Code Pro', monospace;
+            text-transform: uppercase;
+        }
+
+
+        .button2 {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <nav>
+            <ul>
+                <li><a href="/protected">Home</a></li>
+                <li><a href="/protected/Meal_Plan">Meal Plans</a></li>
+            </ul>
+        </nav>
+    </div>
+    <main>
+        <section>
+            <h1>Diet Recommendations</h1>
+            <label for="calories">Enter your average daily calorie intake:</label>
+            <input type="number" id="calories" name="calories" required>
+            <button type="submit" onclick="generateRecommendations()">Submit</button>
+            <br><br>
+            <label for="">As per the data received, average calorie burnt: <p id="data"></p></label>
+
+            <button type="submit" id="myButton" class="button2">Refresh</button>
+
+            <script>
+                document.getElementById("myButton").addEventListener("click", function () {
+                    window.open("http://localhost:3000/auth", "_blank");
+                });
+            </script>
+
+            <script>
+                fetch('/result')
+                    .then(response => response.text())
+                    .then(data => document.getElementById("data").innerHTML = data)
+                    .catch(error => console.error(error));
+            </script>
+
+            <!-- <input type="number" id="calories" name="calories" required> -->
+
+            <div id="onsubmit">
+
+            </div>
+        </section>
+    </main>
+
+    </div>
+
+</body>
+<script>
+    function generateRecommendations() {
+        var avg_calories = document.getElementById("calories").value;
+        var onsubmit = document.getElementById("onsubmit");
+        onsubmit.innerHTML = `<p>Based on your calorie data, we recommend the following diet:</p>
+                <p id="recommendation"></p>
+                <p>Here are some suggested meals:</p>
+                <ul id="suggestions"></ul>`;
+        onsubmit.style.display;
+        if (avg_calories < 1500) {
+            document.getElementById("recommendation").innerHTML = "You should try a low-calorie diet, such as the 1200 calorie meal plan.";
+            document.getElementById("suggestions").innerHTML = "Some suggested meals could be: roasted vegetables, baked salmon with sweet potatoes, or turkey chili with brown rice.";
+        } else if (avg_calories >= 1500 && avg_calories < 2000) {
+            document.getElementById("recommendation").innerHTML = "You are consuming a moderate amount of calories. Try a balanced diet with whole grains, lean protein, and plenty of fruits and vegetables.";
+            document.getElementById("suggestions").innerHTML = "Some suggested meals could be: a quinoa bowl with mixed veggies and tofu, or a salad with mixed greens, and avocado.";
+        } else {
+            document.getElementById("recommendation").innerHTML = "You may want to consider a high-protein diet to help maintain muscle mass while losing weight.";
+            document.getElementById("suggestions").innerHTML = "Some suggested meals could be: a protein shake with mixed berries, almond milk, and protein powder, or a spinach.";
+        }
+    }
+</script>
+
+
+
+
+
+</html>

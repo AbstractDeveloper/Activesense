@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Meals</title>
+</head>
+
+<body>
+  <div class="buttons-container">
+    <a href="/protected/Meal_Plan/Breakfast" class="button"><span>Breakfast</span>
+    </a>
+    <a href="/protected/Meal_Plan/Lunch" class="button"><span>Lunch</span>
+    </a>
+    <a href="/protected/Meal_Plan/Snacks" class="button"><span>Snacks</span>
+    </a>
+    <a href="/protected/Meal_Plan/Dinner" class="button"><span>Dinner</span>
+    </a>
+  </div>
+  
+</body>
+<style>
+  
+  body {
+  font-family: Arial, sans-serif;
+  background-image: url('bg.png');
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  height: 100vh;
+  margin: 0;
+}
+
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: all 0.3s ease;
+  animation: buttonAnimation 2s infinite;
+}
+
+.button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.24), 0 5px 10px rgba(0, 0, 0, 0.28);
+}
+
+@keyframes buttonAnimation {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+
+</style>
+
+<script>
+  function openPage(url) {
+    window.open(url, '_blank');
+  }
+</script>
+
+</html>
